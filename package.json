@@ -1,0 +1,26 @@
+{
+  "name": "node-js",
+  "version": "0.0.1",
+  "description": "task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stas2936/epam-qa-tasks.git"
+  },
+  "keywords": [
+    "node",
+    "npm"
+  ],
+  "author": "Stanilsav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stas2936/epam-qa-tasks/issues"
+  },
+  "homepage": "https://github.com/Stas2936/epam-qa-tasks#readme",
+  "devDependencies": {
+    "fs-extra": "^10.1.0"
+  }
+}
