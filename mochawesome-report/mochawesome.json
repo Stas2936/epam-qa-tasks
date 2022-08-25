@@ -1,0 +1,291 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-23T06:43:15.835Z",
+    "end": "2022-08-23T06:43:15.852Z",
+    "duration": 17,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a76d386a-0188-4d6a-b1b7-420554f8b4a4",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d15f96c6-7f3c-4df9-92bc-d4410ac34b46",
+          "title": "addition of numbers positive script",
+          "fullFile": "C:\\epam\\unit_test\\test\\specs\\add.spec.js",
+          "file": "\\test\\specs\\add.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"addition of numbers positive script\"",
+              "fullTitle": "addition of numbers positive script \"before each\" hook in \"addition of numbers positive script\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addition = new Calculator();\nspy = chai.spy.on(addition, 'add');",
+              "err": {},
+              "uuid": "88dcd73b-32c4-4df7-858d-a44aa1e32d14",
+              "parentUUID": "d15f96c6-7f3c-4df9-92bc-d4410ac34b46",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"addition of numbers positive script\"",
+              "fullTitle": "addition of numbers positive script \"after each\" hook in \"addition of numbers positive script\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addition = null;",
+              "err": {},
+              "uuid": "75a0c30e-8ac7-4f8a-962a-ab9fd099b6e5",
+              "parentUUID": "d15f96c6-7f3c-4df9-92bc-d4410ac34b46",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should retrun sum 10",
+              "fullTitle": "addition of numbers positive script should retrun sum 10",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(addition.add(3, 7)).to.be.eql(10);",
+              "err": {},
+              "uuid": "3a5c479f-4fb7-4494-9258-e8f1ca37ec82",
+              "parentUUID": "d15f96c6-7f3c-4df9-92bc-d4410ac34b46",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return sum -1",
+              "fullTitle": "addition of numbers positive script should return sum -1",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(addition.add(4, -5)).to.be.eql(-1);",
+              "err": {},
+              "uuid": "d30555f4-f8e4-44e4-a270-02434c359bbc",
+              "parentUUID": "d15f96c6-7f3c-4df9-92bc-d4410ac34b46",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should throw exception",
+              "fullTitle": "addition of numbers positive script should throw exception",
+              "timedOut": false,
+              "duration": 2,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let callWithError = ()=> addition.add('a','b');\nexpect(spy).to.be.a.spy;\nexpect(callWithError).to.throw(`you can entre only numbers`);",
+              "err": {},
+              "uuid": "df5bf778-de25-47e0-84f2-cf083f85cdb5",
+              "parentUUID": "d15f96c6-7f3c-4df9-92bc-d4410ac34b46",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3a5c479f-4fb7-4494-9258-e8f1ca37ec82",
+            "d30555f4-f8e4-44e4-a270-02434c359bbc",
+            "df5bf778-de25-47e0-84f2-cf083f85cdb5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "8ecbfb99-a704-41a3-84b2-0ef4a803b13f",
+          "title": "multiplication of numbers positive script",
+          "fullFile": "C:\\epam\\unit_test\\test\\specs\\multiplly.spec.js",
+          "file": "\\test\\specs\\multiplly.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"multiplication of numbers positive script\"",
+              "fullTitle": "multiplication of numbers positive script \"before each\" hook in \"multiplication of numbers positive script\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addit = new Calculator();\nspy = chai.spy.on(addit, \"multiply\");",
+              "err": {},
+              "uuid": "f1846658-713e-4d68-b6f0-ee34e2c134cb",
+              "parentUUID": "8ecbfb99-a704-41a3-84b2-0ef4a803b13f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"multiplication of numbers positive script\"",
+              "fullTitle": "multiplication of numbers positive script \"after each\" hook in \"multiplication of numbers positive script\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addit = null;",
+              "err": {},
+              "uuid": "9f806749-db40-49e1-b470-23dd891afeb8",
+              "parentUUID": "8ecbfb99-a704-41a3-84b2-0ef4a803b13f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should return 21 when we enter 3 and 7",
+              "fullTitle": "multiplication of numbers positive script should return 21 when we enter 3 and 7",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(addit.multiply(3, 7)).to.be.eql(21);",
+              "err": {},
+              "uuid": "d5602b7c-cde0-41a0-9105-fa82b40e8e8d",
+              "parentUUID": "8ecbfb99-a704-41a3-84b2-0ef4a803b13f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return -20 when we enter 4 and -5",
+              "fullTitle": "multiplication of numbers positive script should return -20 when we enter 4 and -5",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(addit.multiply(4, -5)).to.be.eql(-20);",
+              "err": {},
+              "uuid": "49228f51-039b-4eb8-a04f-a464eac2675c",
+              "parentUUID": "8ecbfb99-a704-41a3-84b2-0ef4a803b13f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should throw exception",
+              "fullTitle": "multiplication of numbers positive script should throw exception",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let callWithError = () => addit.multiply(\"a\", true);\nexpect(spy).to.be.a.spy;\nexpect(callWithError).to.throw(`you can entre only numbers`);",
+              "err": {},
+              "uuid": "33db36c0-a130-4619-9dc8-736291d705cf",
+              "parentUUID": "8ecbfb99-a704-41a3-84b2-0ef4a803b13f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d5602b7c-cde0-41a0-9105-fa82b40e8e8d",
+            "49228f51-039b-4eb8-a04f-a464eac2675c",
+            "33db36c0-a130-4619-9dc8-736291d705cf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.0.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
