@@ -9,7 +9,7 @@ describe("Hurt Me Planty", () => {
     await homePage.clickInputButton();
     await homePage.clickOnLink();
     await homePage.switchFrame();
-    await fillForm.addValueInstance("4");
+    await fillForm.addValueInstance();
     await fillForm.selectOperatingSystem();
     await fillForm.selectVmClass();
     await fillForm.selectSeries();
@@ -21,6 +21,7 @@ describe("Hurt Me Planty", () => {
     await fillForm.selectLocationCenter();
     await fillForm.selectCommitedUsage();
     await fillForm.clickOnButton();
+    await browser.pause(10000);
   });
 
   it("Region should be equal 'Frankfurt'", async () => {

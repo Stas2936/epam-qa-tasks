@@ -6,23 +6,23 @@ class FillingTheForm {
   }
 
   get operatingSystemField() {
-    return $("#select_value_label_81");
-  }
-
-  get operatingSystemValue() {
-    return $("#select_option_91");
-  }
-
-  get vmClassField() {
     return $("#select_value_label_82");
   }
 
+  get operatingSystemValue() {
+    return $("#select_option_92");
+  }
+
+  get vmClassField() {
+    return $("#select_value_label_83");
+  }
+
   get vmClassValue() {
-    return $("#select_option_104");
+    return $("#select_option_105");
   }
 
   get seriesField() {
-    return $("#select_value_label_84");
+    return $("#select_value_label_85");
   }
 
   get seriesValue() {
@@ -30,11 +30,11 @@ class FillingTheForm {
   }
 
   get machineTypeField() {
-    return $("#select_value_label_85");
+    return $("#select_value_label_86");
   }
 
   get machineTypeValue() {
-    return $("#select_option_423");
+    return $("#select_option_424");
   }
 
   get pCheckBox() {
@@ -60,104 +60,94 @@ class FillingTheForm {
   }
 
   get localSsd() {
-    return $("#select_value_label_417");
+    return $("#select_value_label_418");
   }
 
   get localSsdModel() {
-    return $("#select_option_444");
+    return $("#select_option_445");
   }
 
   get dataCenterLocation() {
-    return $("#select_122");
+    return $("#select_value_label_88");
   }
 
   get dataCenterLocationFrankfurt() {
-    return $("#select_option_226");
+    return $("#select_option_227");
   }
 
   get commitedUsage() {
-    return $("#select_129");
+    return $("#select_value_label_89");
   }
 
   get commitedUsage1year() {
-    return $("#select_option_127");
+    return $("#select_option_128");
   }
 
   get addToEstimateButton() {
     return $("//button[@aria-label='Add to Estimate']");
   }
 
-  async addValueInstance(text) {
+  async addValueInstance() {
     await this.istance.click();
-    await this.istance.setValue(text);
-    await browser.pause(1000);
+    await this.istance.setValue("4");
   }
 
   async selectOperatingSystem() {
     await this.operatingSystemField.click();
-    await (await this.operatingSystemValue).waitForExist();
+    await (await this.operatingSystemValue).waitForDisplayed();
     await this.operatingSystemValue.click();
     await browser.pause(1000);
   }
 
   async selectVmClass() {
     await (await this.vmClassField).click();
+    await (await this.vmClassValue).waitForDisplayed();
     await (await this.vmClassValue).click();
-    await browser.pause(1000);
   }
 
   async selectSeries() {
     await (await this.seriesField).click();
-    await (await this.seriesValue).waitForExist();
+    await (await this.seriesValue).waitForDisplayed();
     await (await this.seriesValue).click();
-    await browser.pause(1000);
   }
 
   async selectMachineType() {
     await (await this.machineTypeField).click();
-    await (await this.machineTypeValue).waitForExist();
+    await (await this.machineTypeValue).waitForDisplayed();
     await (await this.machineTypeValue).click();
-    await browser.pause(1000);
   }
 
   async clickAddGpusCheckBox() {
     await (await this.pCheckBox).click();
-    await browser.pause(1000);
   }
 
   async selectGpuType() {
     await (await this.gpuTypeField).click();
-    await (await this.gpuTypeValue).waitForExist();
+    await (await this.gpuTypeValue).waitForDisplayed();
     await (await this.gpuTypeValue).click();
-    await browser.pause(1000);
   }
 
   async selectNumberOfGpus() {
     await (await this.numberOfGpusField).click();
-    await (await this.numberOfGpusValue).waitForExist();
+    await (await this.numberOfGpusValue).waitForDisplayed();
     await (await this.numberOfGpusValue).click();
-    await browser.pause(1000);
   }
 
   async selectLocalSsd() {
     await (await this.localSsd).click();
-    await (await this.localSsdModel).waitForExist();
+    await (await this.localSsdModel).waitForDisplayed();
     await (await this.localSsdModel).click();
-    await browser.pause(1000);
   }
 
   async selectLocationCenter() {
-    await browser.pause(2000);
     await (await this.dataCenterLocation).click();
-    await (await this.dataCenterLocationFrankfurt).waitForExist();
-    await browser.pause(2000);
+    await (await this.dataCenterLocationFrankfurt).waitForDisplayed();
     await (await this.dataCenterLocationFrankfurt).click();
-    await browser.pause(2000);
   }
 
   async selectCommitedUsage() {
     await (await this.commitedUsage).click();
-    await (await this.commitedUsage1year).waitForExist();
+    await (await this.commitedUsage1year).waitForDisplayed();
     await (await this.commitedUsage1year).click();
     await browser.pause(1000);
   }
