@@ -1,3 +1,5 @@
+const { YOP_mail } = require("../../utils/constants");
+
 class YOPmail {
   get randomMail() {
     return $("//*[@id='listeliens']/a[1]");
@@ -17,6 +19,14 @@ class YOPmail {
     );
   }
 
+  get mailFrame() {
+    return $("#ifmail");
+  }
+
+  async openMail() {
+    await browser.newWindow(YOP_mail);
+  }
+
   async clickRandomMail() {
     await (await this.randomMail).click();
   }
@@ -30,11 +40,9 @@ class YOPmail {
     await (await this.checkMailButton).click();
   }
 
-  // async getCostInMail() {
-  //   let a = await (await this.costInMail).getText();
-  //   console.log("------------------------------------------" + a);
-  //   return a;
-  //}
+  async switchMailFrame() {
+    await browser.switchToFrame(await this.mailFrame);
+  }
 }
 
 module.exports = new YOPmail();

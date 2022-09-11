@@ -1,3 +1,4 @@
+const { start_page, search_text } = require("../../utils/constants");
 const BasePage = require("./BasePage");
 
 class LoginPage extends BasePage {
@@ -21,7 +22,7 @@ class LoginPage extends BasePage {
     await (await this.inputButton).click();
     await (
       await this.inputButton
-    ).setValue("Google Cloud Platform Pricing Calculator");
+    ).setValue(search_text);
     await browser.keys("Enter");
   }
 
@@ -34,13 +35,8 @@ class LoginPage extends BasePage {
     await this.buttonEl.click();
   }
 
-  async swithToFrame() {
-    await browser.switchToFrame(0);
-    await browser.switchToFrame(0);
-  }
-
   async open() {
-    await super.open("https://cloud.google.com/");
+    await super.open(start_page);
   }
 
   async windowSize() {

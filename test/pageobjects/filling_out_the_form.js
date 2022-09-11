@@ -6,23 +6,23 @@ class FillingTheCalculator {
   }
 
   get operatingSystemField() {
-    return $("#select_value_label_81");
-  }
-
-  get operatingSystemValue() {
-    return $("#select_option_91");
-  }
-
-  get vmClassField() {
     return $("#select_value_label_82");
   }
 
+  get operatingSystemValue() {
+    return $("#select_option_92");
+  }
+
+  get vmClassField() {
+    return $("#select_value_label_83");
+  }
+
   get vmClassValue() {
-    return $("#select_option_104");
+    return $("#select_option_105");
   }
 
   get seriesField() {
-    return $("#select_value_label_84");
+    return $("#select_value_label_85");
   }
 
   get seriesValue() {
@@ -30,11 +30,11 @@ class FillingTheCalculator {
   }
 
   get machineTypeField() {
-    return $("#select_value_label_85");
+    return $("#select_value_label_86");
   }
 
   get machineTypeValue() {
-    return $("#select_option_423");
+    return $("#select_option_424");
   }
 
   get pCheckBox() {
@@ -60,27 +60,27 @@ class FillingTheCalculator {
   }
 
   get localSsd() {
-    return $("#select_value_label_417");
+    return $("#select_value_label_418");
   }
 
   get localSsdModel() {
-    return $("#select_option_444");
+    return $("#select_option_445");
   }
 
   get dataCenterLocation() {
-    return $("#select_122");
+    return $("#select_value_label_88");
   }
 
   get dataCenterLocationFrankfurt() {
-    return $("#select_option_226");
+    return $("#select_option_227");
   }
 
   get commitedUsage() {
-    return $("#select_129");
+    return $("#select_value_label_89");
   }
 
   get commitedUsage1year() {
-    return $("#select_option_127");
+    return $("#select_option_128");
   }
 
   get addToEstimateButton() {
@@ -103,45 +103,45 @@ class FillingTheCalculator {
     return $("//md-dialog-actions/child::button[@type='button'][2]");
   }
 
-  async clickEmailButton() {
-    await (await this.emailButton).click();
+  get mainFrame() {
+    return $("//devsite-iframe/iframe");
   }
 
-  async clickEmailString() {
-    await (await this.emailString).click();
-    await browser.pause(1000);
-    await browser.keys(["Control", "KeyV"]);
+  get secondFrame() {
+    return $("#myFrame");
   }
 
-  async sendEmail() {
-    await (await this.sendEmmailButton).click();
+  async swithToFrame() {
+    await browser.switchToFrame(await this.mainFrame);
+    await browser.switchToFrame(await this.secondFrame);
   }
 
-  async addValueInstance(text) {
+  async addValueInstance() {
     await this.istance.click();
-    await this.istance.setValue(text);
+    await this.istance.setValue("4");
   }
 
   async selectOperatingSystem() {
     await this.operatingSystemField.click();
-    await browser.pause(1000);
+    await (await this.operatingSystemValue).waitForDisplayed();
     await this.operatingSystemValue.click();
   }
 
   async selectVmClass() {
     await (await this.vmClassField).click();
+    await (await this.vmClassValue).waitForDisplayed();
     await (await this.vmClassValue).click();
   }
 
   async selectSeries() {
     await (await this.seriesField).click();
-    await browser.pause(1000);
+    await (await this.seriesValue).waitForDisplayed();
     await (await this.seriesValue).click();
   }
 
   async selectMachineType() {
     await (await this.machineTypeField).click();
-    await browser.pause(1000);
+    await (await this.machineTypeValue).waitForDisplayed();
     await (await this.machineTypeValue).click();
   }
 
@@ -185,6 +185,21 @@ class FillingTheCalculator {
 
   async getCostOnGoogle() {
     return await (await this.costOnGoogle).getText();
+  }
+
+  async clickEmailButton() {
+    await (await this.emailButton).waitForDisplayed();
+    await (await this.emailButton).click();
+  }
+
+  async pasteEmail() {
+    await browser.pause(2000);
+    await (await this.emailString).click();
+    await browser.keys(["Control", "KeyV"]);
+  }
+
+  async sendEmail() {
+    await (await this.sendEmmailButton).click();
   }
 }
 
