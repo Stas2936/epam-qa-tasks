@@ -1,17 +1,11 @@
-const Page = require("./page");
+const BasePage = require("./BasePage");
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class HomePage extends Page {
-  /**
-   * define selectors using getter methods
-   */
-  get inputCode() {
+class HomePage extends BasePage {
+  get inputCodeField() {
     return $("#postform-text");
   }
 
-  get findExperation() {
+  get findExperationField() {
     return $("#select2-postform-expiration-container");
   }
 
@@ -19,12 +13,12 @@ class HomePage extends Page {
     return $("//li[text()='10 Minutes']");
   }
 
-  get findSyntax() {
+  get findSyntaxField() {
     return $("#select2-postform-format-container");
   }
 
-  get findField(){
-    return $('.select2-search__field')
+  get findFieldInSyntax() {
+    return $(".select2-search__field");
   }
 
   get findBashInSyntax() {
@@ -33,38 +27,36 @@ class HomePage extends Page {
     );
   }
 
-  get inputPasteTitle() {
+  get inputPasteTitleField() {
     return $("#postform-name");
   }
 
-  get buttonEl() {
+  get createNewPasteButton() {
     return $("//button[@class='btn -big']");
   }
 
   async addCodeText(code) {
-    await this.inputCode.addValue(code);
+    await this.inputCodeField.addValue(code);
   }
 
   async selectExpiration() {
-    await this.findExperation.click();
+    await this.findExperationField.click();
     await this.findExperation10Minutes.click();
   }
 
   async selectSyntax() {
-    await this.findSyntax.click();
-    await (await this.findField).setValue('Bash');
-    await browser.pause(2000);
+    await this.findSyntaxField.click();
+    await (await this.findFieldInSyntax).waitForExist();
+    await (await this.findFieldInSyntax).setValue("Bash");
     await this.findBashInSyntax.click();
-    await browser.pause(2000);
-
   }
 
   async addTextTitle(text) {
-    await this.inputPasteTitle.addValue(text);
+    await this.inputPasteTitleField.addValue(text);
   }
 
-  async buttonClick() {
-    await this.buttonEl.click();
+  async createNewPasteButtonClick() {
+    await this.createNewPasteButton.click();
   }
 }
 
