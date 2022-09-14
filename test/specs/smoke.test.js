@@ -2,7 +2,7 @@ const {
   titleBasePage,
   titleCalculationPage,
   titleYopMail,
-} = require("../../utils/proofs");
+} = require("../../utils/verification");
 const homePage = require("../pageobjects/HomePage");
 const YOPmail = require("../pageobjects/YopMailPage");
 

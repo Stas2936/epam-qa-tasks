@@ -1,7 +1,7 @@
 const homePage = require("../pageobjects/HomePage");
 const calculationPage = require("../pageobjects/CalculationPage");
 const yopMail = require("../pageobjects/YopMailPage");
-const { priceOnCalculationPage } = require("../../utils/proofs");
+const { priceOnCalculationPage } = require("../../utils/verification");
 
 describe("Hardcore", () => {
   it("Price on the google page should be equal price in the message", async () => {
