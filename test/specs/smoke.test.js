@@ -1,5 +1,5 @@
 const homePage = require("../pageobjects/HomePage");
-const YOPmail = require("../pageobjects/YopMailPage");
+const yopMail = require("../pageobjects/YopMailPage");
 
 describe("Hardcore", () => {
   it("Open browser", async () => {
@@ -14,9 +14,9 @@ describe("Hardcore", () => {
   });
 
   it("Open mail page and create mail account", async () => {
-    await YOPmail.openMail();
-    await YOPmail.clickRandomMail();
-    await YOPmail.checkMail();
+    await yopMail.openMail();
+    await yopMail.clickRandomMail();
+    await yopMail.checkMail();
     expect(browser).toHaveTitleContaining("Входящие");
   });
 });
