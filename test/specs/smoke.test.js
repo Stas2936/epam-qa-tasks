@@ -14,7 +14,7 @@ describe("Hardcore", () => {
   });
   it("Filling form", async () => {
     await homePage.clickInputButton();
-    //await homePage.clickOnLink();
+    await homePage.clickOnLink();
     expect(browser).toHaveTitle(titleCalculationPage);
   });
 
