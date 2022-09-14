@@ -1,21 +1,13 @@
 const { start_page, search_text } = require("../../utils/constants");
 const BasePage = require("./BasePage");
 
-class LoginPage extends BasePage {
+class HomePage extends BasePage {
   get inputButton() {
     return $("//*[@class='devsite-search-field devsite-search-query']");
   }
 
   get link() {
     return $("//b[text()='Google Cloud Pricing Calculator']");
-  }
-
-  get inputPasteTitle() {
-    return $("#postform-name");
-  }
-
-  get buttonEl() {
-    return $("//button[@class='btn -big']");
   }
 
   async clickInputButton() {
@@ -28,11 +20,6 @@ class LoginPage extends BasePage {
 
   async clickOnLink() {
     await this.link.click();
-    await browser.pause(3000);
-  }
-
-  async buttonClick() {
-    await this.buttonEl.click();
   }
 
   async open() {
@@ -44,4 +31,4 @@ class LoginPage extends BasePage {
   }
 }
 
-module.exports = new LoginPage();
+module.exports = new HomePage();

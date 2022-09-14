@@ -6,4 +6,8 @@ module.exports = class BasePage {
   async windowSize() {
     return await browser.maximizeWindow();
   }
+
+  async getWindowHandles() {
+   return await browser.getWindowHandles();
+  }
 };

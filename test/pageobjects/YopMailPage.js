@@ -1,8 +1,9 @@
 const { YOP_mail } = require("../../utils/constants");
+const BasePage = require("./BasePage");
 
-class YOPmail {
+class YOPmail extends BasePage {
   get randomMail() {
-    return $("//*[@id='listeliens']/a[1]");
+    return $("//a[@href='email-generator']/div[@class='txtlien']");
   }
 
   get copyMailButton() {
@@ -10,13 +11,13 @@ class YOPmail {
   }
 
   get checkMailButton() {
-    return $("/html/body/div/div[2]/main/div/div[2]/div/div/div[2]/button[2]");
+    return $(
+      "//button[@class='md but text f24 egenbut' and @onclick='egengo();' ]"
+    );
   }
 
   get costInMail() {
-    return $(
-      "//*[@id='mail']/div/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/h3"
-    );
+    return $("//h3[contains(text(),'USD 1,081.20')]");
   }
 
   get mailFrame() {
@@ -42,6 +43,11 @@ class YOPmail {
 
   async switchMailFrame() {
     await browser.switchToFrame(await this.mailFrame);
+  }
+
+  async switchWindowToCalculator() {
+    const windows = await super.getWindowHandles();
+    await browser.switchToWindow(windows[0]);
   }
 }
 

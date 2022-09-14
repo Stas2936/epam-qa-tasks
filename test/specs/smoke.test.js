@@ -1,5 +1,5 @@
-const homePage = require("../pageobjects/homepage");
-const YOPmail = require("../pageobjects/YOPmail");
+const homePage = require("../pageobjects/HomePage");
+const YOPmail = require("../pageobjects/YopMailPage");
 
 describe("Hardcore", () => {
   it("Open browser", async () => {

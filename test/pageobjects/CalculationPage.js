@@ -1,5 +1,7 @@
-class FillingTheCalculator {
-  get istance() {
+const BasePage = require("./BasePage");
+
+class CalculationPage extends BasePage {
+  get istanceField() {
     return $(
       "//md-input-container/child::input[@ng-model='listingCtrl.computeServer.quantity']"
     );
@@ -34,10 +36,10 @@ class FillingTheCalculator {
   }
 
   get machineTypeValue() {
-    return $("#select_option_424");
+    return $("//md-option[@value='CP-COMPUTEENGINE-VMIMAGE-N1-STANDARD-8']");
   }
 
-  get pCheckBox() {
+  get checkBoxButton() {
     return $("//md-checkbox[@aria-label='Add GPUs']");
   }
 
@@ -60,11 +62,13 @@ class FillingTheCalculator {
   }
 
   get localSsd() {
-    return $("#select_value_label_418");
+    return $("#select_value_label_421");
   }
 
   get localSsdModel() {
-    return $("#select_option_445");
+    return $(
+      "//md-option[@ng-repeat='item in listingCtrl.dynamicSsd.computeServer' and @value='2']"
+    );
   }
 
   get dataCenterLocation() {
@@ -87,20 +91,16 @@ class FillingTheCalculator {
     return $("//button[@aria-label='Add to Estimate']");
   }
 
-  get costOnGoogle() {
-    return $("//*[@id='resultBlock']/md-card/md-card-content/div/div/div/h2/b");
-  }
-
   get emailButton() {
     return $("#email_quote");
   }
 
-  get emailString() {
+  get emptyFieldForEmail() {
     return $("//md-input-container/child::input[@type='email']");
   }
 
   get sendEmmailButton() {
-    return $("//md-dialog-actions/child::button[@type='button'][2]");
+    return $("//button[@aria-label='Send Email']");
   }
 
   get mainFrame() {
@@ -117,8 +117,8 @@ class FillingTheCalculator {
   }
 
   async addValueInstance() {
-    await this.istance.click();
-    await this.istance.setValue("4");
+    await this.istanceField.click();
+    await this.istanceField.setValue("4");
   }
 
   async selectOperatingSystem() {
@@ -146,7 +146,7 @@ class FillingTheCalculator {
   }
 
   async clickAddGpusCheckBox() {
-    await (await this.pCheckBox).click();
+    await (await this.checkBoxButton).click();
   }
 
   async selectGpuType() {
@@ -183,24 +183,25 @@ class FillingTheCalculator {
     await this.addToEstimateButton.click();
   }
 
-  async getCostOnGoogle() {
-    return await (await this.costOnGoogle).getText();
-  }
-
   async clickEmailButton() {
     await (await this.emailButton).waitForDisplayed();
     await (await this.emailButton).click();
   }
 
   async pasteEmail() {
-    await browser.pause(2000);
-    await (await this.emailString).click();
+    await (await this.emptyFieldForEmail).waitForClickable({ timeout: 3000 });
+    await (await this.emptyFieldForEmail).click();
     await browser.keys(["Control", "KeyV"]);
   }
 
-  async sendEmail() {
+  async sendEmailClick() {
     await (await this.sendEmmailButton).click();
+  }
+
+  async switchWindowToYopMail() {
+    const windows = await super.getWindowHandles();
+    await browser.switchToWindow(windows[1]);
   }
 }
 
-module.exports = new FillingTheCalculator();
+module.exports = new CalculationPage();
