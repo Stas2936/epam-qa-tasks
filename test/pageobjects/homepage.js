@@ -1,7 +1,7 @@
 const { searchText, startPage } = require("../../utils/constants");
-const BasePage = require("./basepage");
+const BasePage = require("./BasePage");
 
-class LoginPage extends BasePage {
+class HomePage extends BasePage {
   get inputButton() {
     return $("//*[@class='devsite-search-field devsite-search-query']");
   }
@@ -10,28 +10,15 @@ class LoginPage extends BasePage {
     return $("//b[text()='Google Cloud Pricing Calculator']");
   }
 
-  get inputPasteTitle() {
-    return $("#postform-name");
-  }
-
-  get buttonEl() {
-    return $("//button[@class='btn -big']");
-  }
 
   async clickInputButton() {
     await (await this.inputButton).click();
-    await (
-      await this.inputButton
-    ).setValue(searchText);
+    await (await this.inputButton).setValue(searchText);
     await browser.keys("Enter");
   }
 
   async clickOnLink() {
     await this.link.click();
-  }
-
-  async buttonClick() {
-    await this.buttonEl.click();
   }
 
   async open() {
@@ -41,11 +28,6 @@ class LoginPage extends BasePage {
   async windowSize() {
     await super.windowSize();
   }
-
-  async switchFrame() {
-    await browser.switchToFrame(0);
-    await browser.switchToFrame(0);
-  }
 }
 
-module.exports = new LoginPage();
+module.exports = new HomePage();

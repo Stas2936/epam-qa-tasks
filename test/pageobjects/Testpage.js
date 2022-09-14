@@ -1,6 +1,6 @@
 class TestPage {
   get region() {
-    return $("//md-list-item[@class='md-1-line md-no-proxy'][1]");
+    return $("//div[contains(text(),'Region: Frankfurt')]");
   }
 
   get vmClass() {
@@ -12,15 +12,15 @@ class TestPage {
   }
 
   get localSsd() {
-    return $('//*[@id="compute"]/md-list/md-list-item[7]/div[1]');
+    return $("//div[@ng-class=\"item.items.isSsdCommitted ? 'cpc-cart-multiline' : ''\"]");
   }
 
   get commitmentTerm() {
-    return $('//*[@id="compute"]/md-list/md-list-item[3]/div');
+    return $("//div[contains(text(),'Commitment term: 1 Year')]");
   }
 
   get price() {
-    return $('//*[@id="resultBlock"]/md-card/md-card-content/div/div/div/h2/b');
+    return $("//h2[@class='md-title']/b");
   }
 }
 

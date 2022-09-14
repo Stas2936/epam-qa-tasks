@@ -1,5 +1,5 @@
-class FillingTheForm {
-  get istance() {
+class CalculationPage {
+  get istanceField() {
     return $(
       "//md-input-container/child::input[@ng-model='listingCtrl.computeServer.quantity']"
     );
@@ -34,10 +34,10 @@ class FillingTheForm {
   }
 
   get machineTypeValue() {
-    return $("#select_option_424");
+    return $("//md-option[@value='CP-COMPUTEENGINE-VMIMAGE-N1-STANDARD-8']");
   }
 
-  get pCheckBox() {
+  get checkBoxButton() {
     return $("//md-checkbox[@aria-label='Add GPUs']");
   }
 
@@ -60,11 +60,13 @@ class FillingTheForm {
   }
 
   get localSsd() {
-    return $("#select_value_label_418");
+    return $("#select_value_label_421");
   }
 
   get localSsdModel() {
-    return $("#select_option_445");
+    return $(
+      "//md-option[@ng-repeat='item in listingCtrl.dynamicSsd.computeServer' and @value='2']"
+    );
   }
 
   get dataCenterLocation() {
@@ -87,16 +89,20 @@ class FillingTheForm {
     return $("//button[@aria-label='Add to Estimate']");
   }
 
+  async switchFrame() {
+    await browser.switchToFrame(0);
+    await browser.switchToFrame(0);
+  }
+
   async addValueInstance() {
-    await this.istance.click();
-    await this.istance.setValue("4");
+    await this.istanceField.click();
+    await this.istanceField.setValue("4");
   }
 
   async selectOperatingSystem() {
     await this.operatingSystemField.click();
     await (await this.operatingSystemValue).waitForDisplayed();
     await this.operatingSystemValue.click();
-    await browser.pause(1000);
   }
 
   async selectVmClass() {
@@ -118,7 +124,7 @@ class FillingTheForm {
   }
 
   async clickAddGpusCheckBox() {
-    await (await this.pCheckBox).click();
+    await (await this.checkBoxButton).click();
   }
 
   async selectGpuType() {
@@ -149,7 +155,6 @@ class FillingTheForm {
     await (await this.commitedUsage).click();
     await (await this.commitedUsage1year).waitForDisplayed();
     await (await this.commitedUsage1year).click();
-    await browser.pause(1000);
   }
 
   async clickOnButton() {
@@ -157,4 +162,4 @@ class FillingTheForm {
   }
 }
 
-module.exports = new FillingTheForm();
+module.exports = new CalculationPage();
