@@ -1,5 +1,5 @@
-const homepage = require("../page/Homepage");
-let tests = require("../page/Tests");
+const homePage = require("../page/HomePage");
+const testPage = require("../page/TestPage");
 const { expect } = require("chai");
 let code =
   'git config --global user.name  "New Sheriff in Town"\ngit reset $(git commit-tree HEAD^{tree} -m "Legacy code")\ngit push origin master --force';
@@ -7,24 +7,24 @@ let titleName = "how to gain dominance among developers";
 
 describe("bring it on", function () {
   before(async () => {
-    await homepage.open();
-    await homepage.addCode(code);
-    await homepage.select_syntax();
-    await homepage.select_expiration();
-    await homepage.pasteTitleName("how to gain dominance among developers");
-    await homepage.createNewPaste();
+    await homePage.open();
+    await homePage.addCode(code);
+    await homePage.selectSyntax();
+    await homePage.selectExpiration();
+    await homePage.pasteTitleName(titleName);
+    await homePage.createNewPaste();
+    console.log(await testPage.getTitle());
   });
 
   it("check browser page title", async function () {
-    expect(await tests.get_Title()).to.be.contain(await tests.addedTitle());
+    expect(await testPage.getTitle()).to.be.contain(titleName);
   });
 
   it("button is displayed", async function () {
-    expect(await tests.buttonIsDisplayed()).to.be.equal(true);
+    expect(await testPage.buttonIsDisplayed()).to.be.true;
   });
 
   it("code matches the input", async function () {
-    expect(await tests.addedText()).to.be.equal(code);
+    expect(await testPage.addedText()).to.be.equal(code);
   });
 });
-

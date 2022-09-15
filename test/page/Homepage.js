@@ -1,8 +1,14 @@
-let BasePage = require("../page/Basepage");
+let BasePage = require("./BasePage");
 const { Builder, Key, By, until } = require("selenium-webdriver");
+let webdriver = require("selenium-webdriver");
+let driver = new webdriver.Builder().forBrowser("chrome").build();
 
 class HomePage extends BasePage {
-  get add_code() {
+  constructor(driver) {
+    super(driver);
+  }
+
+  get addCodeField() {
     return driver.findElement(By.id("postform-text"));
   }
 
@@ -35,16 +41,16 @@ class HomePage extends BasePage {
   }
 
   async addCode(code) {
-    await this.add_code.sendKeys(code);
+    await this.addCodeField.sendKeys(code);
   }
 
-  async select_syntax() {
+  async selectSyntax() {
     await this.syntaxField.click();
     await driver.wait(until.elementIsVisible(this.syntaxValue));
     await this.syntaxValue.sendKeys("Bash", Key.ENTER);
   }
 
-  async select_expiration() {
+  async selectExpiration() {
     await this.expirationField.click();
     await driver.wait(until.elementIsVisible(this.expiration10Minutes));
     await this.expiration10Minutes.click();
@@ -58,10 +64,7 @@ class HomePage extends BasePage {
     await this.newPasteButton.click();
   }
   async open() {
-   await super.open("https://pastebin.com");
+    await super.open("https://pastebin.com");
   }
 }
-
-module.exports = new HomePage();
-
-
+module.exports = new HomePage(driver);
