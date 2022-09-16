@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "end2end": "cross-env BROWSER='chrome' npx wdio wdio.conf.js --suite end2end",
-    "smoke": "cross-env BROWSER='chrome' npx wdio wdio.conf.js --suite smoke"
+    "end2end": "npx cross-env BROWSER='chrome' npx wdio wdio.conf.js --suite end2end",
+    "smoke": "npx cross-env BROWSER='chrome' npx wdio wdio.conf.js --suite smoke"
   },
   "keywords": [],
   "author": "",

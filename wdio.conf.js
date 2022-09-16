@@ -121,7 +121,8 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["selenium-standalone"],
+  //services: ["selenium-standalone"],
+  services: ["chrome-driver"],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -251,16 +252,10 @@ exports.config = {
     { error, result, duration, passed, retries }
   ) {
     if (error) {
-      const times = new Date().toString().replace("/[^w]/g, ''");
-      await browser.saveScreenshot(
-        `./test_failed${times}.png`
-      );
+      const date = new Date().toLocaleString().replace(/:/g, "-");
+      await browser.saveScreenshot(`./screenshots/errors/${date}.png`);
     }
-    else{
-      await browser.takeElementScreenshot();
-   }
   },
-
   /**
    * Hook that gets executed after the suite has ended
    * @param {Object} suite suite details
